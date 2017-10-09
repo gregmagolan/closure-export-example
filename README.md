@@ -2,13 +2,13 @@
 
 An example code that uses the `export { x, y as z } from 'some-module'` form.
 
-Bundle fails with runtime error with https://github.com/google/closure-compiler/pull/2641 dist. Bundle succeeds with dist that includes this patch: https://github.com/ChadKillingsworth/closure-compiler/pull/2.
-
 ### Setup
 
 * `yarn install`
 
 ### Build and run with PR2641
+
+Bundle fails with runtime error with https://github.com/google/closure-compiler/pull/2641 dist.
 
 * `yarn build`
 * `yarn serve` to serve up on port 8080 (error seen in console)
@@ -25,9 +25,11 @@ ReferenceError: module$src$bar is not defined
 
 ### Build and run with PR2641 + patches
 
+Bundle succeeds with dist of PR2641 that includes this patch: https://github.com/ChadKillingsworth/closure-compiler/pull/2.
+
 * `yarn build-patched`
-* `yarn serve` to serve up on port 8080 (error seen in console)
-* `yarn start` to just run bundle with node to see error
+* `yarn serve` to serve up on port 8080
+* `yarn start` to just run bundle
 * `yarn explore` to display the contents of the bundle source map
 
 The closure dist is the 2017-10-06 HEAD + PR2641 + three patches described in the following PRs:

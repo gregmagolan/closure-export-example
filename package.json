@@ -1,0 +1,27 @@
+{
+  "name": "closure-compiler-angular-bundling",
+  "version": "1.0.0",
+  "author": "Greg Magolan",
+  "license": "MIT",
+  "description": "Closure export example",
+  "devDependencies": {
+    "clang-format": "^1.0.55",
+    "google-closure-compiler-pr2641": "git+https://github.com/gregmagolan/closure-compiler.git#20170930-HEAD+PR2641.angular.dist",
+    "google-closure-compiler-patched": "git+https://github.com/gregmagolan/closure-compiler.git#20171006-HEAD+PR2641+patches.angular.dist",
+    "lite-server": "2.3.0",
+    "rimraf": "^2.6.2",
+    "source-map-explorer": "^1.5.0",
+    "typescript": "2.5.3"
+  },
+  "scripts": {
+    "build": "tsc -p src && yarn closure-pr2641",
+    "build-with-patch": "tsc -p src && yarn closure-patched",
+    "closure-pr2641": "java -jar node_modules/google-closure-compiler-pr2641/compiler.jar --flagfile closure.conf",
+    "closure-patched": "java -jar node_modules/google-closure-compiler-patched/compiler.jar --flagfile closure.conf",
+    "format": "clang-format --glob='{src/**/,}*.{js,ts}' -i",
+    "serve": "### Serving on port 8080\n  lite-server -c test/browser.config.json",
+    "start": "node ./dist/bundle.js",
+    "explore": "source-map-explorer dist/bundle.js dist/bundle.js.map",
+    "clean": "rimraf ./dist && rimraf ./built"
+  }
+}

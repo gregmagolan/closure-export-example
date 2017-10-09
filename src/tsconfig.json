@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "module": "es2015",
+        "moduleResolution": "node",
+        "target": "es6",
+        "noImplicitAny": true,
+        "sourceMap": false,
+        "experimentalDecorators": true,
+        "outDir": "../built/src",
+        "declaration": true
+    },
+    "exclude": [
+        "node_modules",
+        "built",
+        "dist"
+    ]
+}

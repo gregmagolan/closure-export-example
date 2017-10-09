@@ -42,7 +42,7 @@ The closure dist is the 2017-10-06 HEAD + PR2641 + three patches described in th
 
 The entry point issue fixed with https://github.com/ChadKillingsworth/closure-compiler/pull/1 can also be seen in this repo.
 
-`closure.conf` has the entry point set to `--entry_point=src/bootstrap`. If the entry point is changed to `--entry_point=./built/src/bootstrap` and built with PR2641 you get an invalid bundle (since the entry point is not found) that looks like this:
+`closure.conf` has the entry point set to `--entry_point=src/bootstrap`. If the entry point is changed to `--entry_point=./built/src/bootstrap` and built with PR2641 (`yarn build`) you get an invalid bundle (since the entry point is not found) that looks like this:
 
 ```
 module$src$foo.Foo.test();module$src$foo.Bar2.test();
@@ -53,3 +53,5 @@ and a runtime error:
 ```
 ReferenceError: module$src$foo is not defined
 ```
+
+Building with PR2641 that includes the patch from https://github.com/ChadKillingsworth/closure-compiler/pull/1 (`yarn build-patched`) the entry point is found and the bundle is valid.

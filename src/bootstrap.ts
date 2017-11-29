@@ -1,4 +1,5 @@
-import {Bar2, Foo} from './foo';
+import {Foo, Moo, Bar2} from './foo';
 
 Foo.test();
+Moo.test();
 Bar2.test();

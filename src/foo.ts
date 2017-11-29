@@ -1,3 +1,4 @@
+export {Moo} from './moo';
 export {Bar as Bar2} from './bar';
 
 export class Foo {
